@@ -1,5 +1,10 @@
 {
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
-  "projects": {}
+  "projects": {
+    "backend": "apps/backend",
+    "definitions": "libs/definitions",
+    "love-match": "apps/love-match",
+    "love-match-e2e": "apps/love-match-e2e"
+  }
 }
