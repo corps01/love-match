@@ -1,53 +1,45 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
-import NxWelcome from './nx-welcome';
-
+import './app.scss';
 import { Route, Routes, Link } from 'react-router-dom';
+import Home from './views/home/component';
+import Profile from './views/profile/component';
+import Config from './views/config/component';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 
-export function App() {
+const App = () => {
   return (
-    <>
-      <NxWelcome title="love-match" />
-      <div />
-
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
-      <br />
-      <hr />
-      <br />
-      <div role="navigation">
+      <div className="header-container" role="navigation">
+        <div className='header'>
+        <h2>❤️ love-match</h2>
         <ul>
+          <li>
+          <FontAwesomeIcon icon={faCoffee} />
+          </li>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/page-2">Page 2</Link>
+            <Link to="/profile">Profile</Link>
+          </li>
+          <li>
+            <Link to="/config">Config</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
           </li>
         </ul>
       </div>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <div>
-              This is the generated root route.{' '}
-              <Link to="/page-2">Click here for page 2.</Link>
-            </div>
-          }
-        />
-        <Route
-          path="/page-2"
-          element={
-            <div>
-              <Link to="/">Click here to go back to root page.</Link>
-            </div>
-          }
-        />
-      </Routes>
-      {/* END: routes */}
-    </>
+      <div className="router">
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/config" element={<Config />} />
+          </Routes>
+        </div>
+      </div>
+      </div>
   );
-}
+};
 
 export default App;
