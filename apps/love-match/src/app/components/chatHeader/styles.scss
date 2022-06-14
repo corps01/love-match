@@ -1,0 +1,26 @@
+.chat-header {
+  display: flex;
+  padding: 10px;
+  border-bottom: solid #E7E5E5;
+  background: white;
+  width: 100%;
+    position: sticky;
+    top: 0;
+
+  .profile-img {
+    min-width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 15px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .chat-contact-info {
+  }
+}
