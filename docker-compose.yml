@@ -1,0 +1,32 @@
+services:
+
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: ./apps/frontend/Dockerfile
+    depends_on:
+      - "external-api"
+      - "auth-app"
+    ports:
+      - "4200:4200"
+
+  auth-app:
+    container_name: auth-app
+    build:
+      context: .
+      dockerfile: ./apps/auth-app/Dockerfile
+    depends_on:
+      - "external-api"
+    ports:
+      - "3000:3000"
+
+  backend:
+    container_name: backend
+    build:
+      context: .
+      dockerfile: ./apps/backend/Dockerfile
+    depends_on:
+      - "authentication-service"
+    ports:
+      - "3333:3333"

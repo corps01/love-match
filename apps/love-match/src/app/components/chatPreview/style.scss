@@ -1,6 +1,7 @@
 .ChatPreview{
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 8px 5px;
     margin: 12px;
     border-radius: 10px;
@@ -22,7 +23,7 @@
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
-    margin: 0 10px;
+    margin-right: 10px;
 
   img{
     width: 100%;
@@ -32,7 +33,6 @@
   }
 
   .preview-texts{
-    padding: 5px 10px;
 
     .preview-header{
       display: flex;
@@ -65,6 +65,7 @@
     padding: 1px 8px 1px 5px;
     border-radius: 50%;
     text-overflow: inherit;
+    margin: 0 1px 0 10px;
       }
     }
   }

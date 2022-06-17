@@ -1,11 +1,9 @@
 .chat-header {
   display: flex;
   padding: 10px;
-  border-bottom: solid #E7E5E5;
+  min-height: 55px;
+  border-bottom: solid #e7e5e5;
   background: white;
-  width: 100%;
-    position: sticky;
-    top: 0;
 
   .profile-img {
     min-width: 50px;

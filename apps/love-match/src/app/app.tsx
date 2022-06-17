@@ -14,7 +14,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Login from './views/login/component';
 
-const logged = false;
+const logged = true;
 
 const App = () => {
   return (

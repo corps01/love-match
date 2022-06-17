@@ -1,21 +1,24 @@
 .chat-sidebar{
     height: 100vh;
     min-width: 435px;
+    display: flex;
+    flex-direction: column;
     border-right: solid #E7E5E5;
-    overflow: auto;
     background-color: #F8F9FA;
 }
 
+.chats-container{
+  overflow: auto;
+}
+
 .card-header{
-  padding: 7px 10px;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 55px;
+  min-height: 55px;
   background: white;
-  position: sticky;
-  top: 0;
-  box-shadow: 0 -6px 10px 5px rgba(0,0,0,0.5);
+  border-bottom: solid #e7e5e5;
 
   .search-bar{
     input{

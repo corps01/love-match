@@ -2,6 +2,9 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "auth-app": "apps/auth-app",
+    "auth-app-e2e": "apps/auth-app-e2e",
+    "authentication-service": "apps/authentication-service",
     "backend": "apps/backend",
     "definitions": "libs/definitions",
     "love-match": "apps/love-match",

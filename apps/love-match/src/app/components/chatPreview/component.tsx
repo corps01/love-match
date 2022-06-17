@@ -1,5 +1,11 @@
 import { useState } from 'react';
+import { FC } from 'react';
 import './style.scss';
+import { IChat } from "../../interfaces"
+
+interface ChatPreviewProps {
+  chat:IChat
+}
 
 const ChatPreview = () => {
 

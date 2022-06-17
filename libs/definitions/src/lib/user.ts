@@ -66,18 +66,18 @@ export interface PersonalQuestion {
 }
 
 export class CreateUserDTO {
-  name?: string;
-  last_name?: string;
-  password?: string;
-  email?: string;
-  city?: string;
-  country?: string;
-  phone?: string;
-  age?: number;
-  gender?: Gender;
-  preference?: string;
-  about?: About;
-  lookingfor?: Lookingfor;
+  name: string;
+  last_name: string;
+  password: string;
+  email: string;
+  city: string;
+  country: string;
+  phone: string;
+  age: number;
+  gender: Gender;
+  preference: string;
+  about: About;
+  lookingfor: Lookingfor;
   verified = false;
 }
 
