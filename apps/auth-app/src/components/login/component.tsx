@@ -69,10 +69,9 @@ const formik = useFormik<loginForm>({
         <div className="login-form">
           <h2>Bienvenido</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At aut
-            voluptates dolorum, amet, porro numquam doloribus aperiam itaque
-            voluptatibus molestias delectus neque. Doloribus sint minima sed
-            aperiam optio. Enim, dolore?
+          Sentimiento hacia otra persona que naturalmente nos atrae y que,
+          procurando reciprocidad en el deseo de unión, nos completa,
+          alegra y da energía para convivir, comunicarnos y crear.
           </p>
           <form>
             <input type="email" placeholder="email" name='email' onChange={formik.handleChange("email")} value={formik.values.email}></input>
@@ -91,10 +90,9 @@ const formik = useFormik<loginForm>({
         <div className="login-form">
           <h2>Estas a segundos de encontrar el amor</h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. At aut
-            voluptates dolorum, amet, porro numquam doloribus aperiam itaque
-            voluptatibus molestias delectus neque. Doloribus sint minima sed
-            aperiam optio. Enim, dolore?
+          Sentimiento hacia otra persona que naturalmente nos atrae y que,
+          procurando reciprocidad en el deseo de unión, nos completa,
+          alegra y da energía para convivir, comunicarnos y crear.
           </p>
 
           <form>
