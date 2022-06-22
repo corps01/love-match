@@ -1,0 +1,37 @@
+.chat-sidebar{
+    height: 100vh;
+    min-width: 435px;
+    display: flex;
+    flex-direction: column;
+    border-right: solid #E7E5E5;
+    background-color: #F8F9FA;
+}
+
+.chats-container{
+  overflow: auto;
+}
+
+.card-header{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 55px;
+  background: white;
+  border-bottom: solid #e7e5e5;
+
+  .search-bar{
+    input{
+      border: solid #e7e5e5;
+      border-radius: 5px;
+      padding: 5px;
+      width: 250px;
+    }
+
+    .search-icon{
+      color: grey;
+      padding-left: 10px;
+    }
+  }
+
+}

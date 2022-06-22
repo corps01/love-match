@@ -1,0 +1,101 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/front-auth/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/front-auth",
+        "index": "apps/front-auth/src/index.html",
+        "baseHref": "/",
+        "main": "apps/front-auth/src/main.ts",
+        "polyfills": "apps/front-auth/src/polyfills.ts",
+        "tsConfig": "apps/front-auth/tsconfig.app.json",
+        "assets": [
+          "apps/front-auth/src/favicon.ico",
+          "apps/front-auth/src/assets"
+        ],
+        "styles": ["apps/front-auth/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "apps/front-auth/webpack.config.js"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/front-auth/src/environments/environment.ts",
+              "with": "apps/front-auth/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/front-auth/webpack.config.prod.js"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "front-auth:build",
+        "hmr": true,
+        "port": 3004
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "front-auth:build:development"
+        },
+        "production": {
+          "buildTarget": "front-auth:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/front-auth/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/front-auth"],
+      "options": {
+        "jestConfig": "apps/front-auth/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "serve-static": {
+      "executor": "@nrwl/web:file-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "front-auth:build",
+        "port": 3004
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "front-auth:build:development"
+        },
+        "production": {
+          "buildTarget": "front-auth:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}

@@ -7,6 +7,10 @@
     "authentication-service": "apps/authentication-service",
     "backend": "apps/backend",
     "definitions": "libs/definitions",
+    "front-auth": "apps/front-auth",
+    "front-auth-e2e": "apps/front-auth-e2e",
+    "front-principal": "apps/front-principal",
+    "front-principal-e2e": "apps/front-principal-e2e",
     "love-match": "apps/love-match",
     "love-match-e2e": "apps/love-match-e2e"
   }
