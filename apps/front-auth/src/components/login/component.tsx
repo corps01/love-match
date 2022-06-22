@@ -5,6 +5,7 @@ import * as Yup from 'yup';
 import { LoginService } from '../../services/login';
 import { saveToken } from '../../services/localstorage';
 import { sha512 } from 'js-sha512';
+import { useNavigate } from 'react-router-dom';
 
 
 export interface loginForm {
@@ -22,6 +23,7 @@ export const loginSchema = Yup.object({
 
 const Login = () => {
   const [formView, setFormView] = useState('');
+  const navigate = useNavigate();
 
   const toggledRegister = () => {
     setFormView(formView === 'enter' ? 'register' : 'enter');
@@ -37,7 +39,6 @@ const Login = () => {
 //     console.log(values)
 //   }
 // })
-
 
 const fetchLogin = async (values: loginForm) => {
   const auth = await LoginService({
