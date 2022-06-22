@@ -2,7 +2,9 @@ import './styles.scss';
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-
+import { LoginService } from '../../services/login';
+import { saveToken } from '../../services/localstorage';
+import { sha512 } from 'js-sha512';
 
 
 export interface loginForm {
@@ -26,15 +28,33 @@ const Login = () => {
   };
 
 
-const formik = useFormik({
-  initialValues:{
+// const formik = useFormik({
+//   initialValues:{
+//     email: '',
+//     password:'',
+//   },
+//   onSubmit: (values) =>{
+//     console.log(values)
+//   }
+// })
+
+
+const fetchLogin = async (values: loginForm) => {
+  const auth = await LoginService({
+    email: values.email,
+    password: values.password,
+  });
+  saveToken(auth);
+};
+
+const formik = useFormik<loginForm>({
+  initialValues: {
     email: '',
-    password:'',
+    password: '',
   },
-  onSubmit: (values) =>{
-    console.log(values)
-  }
-})
+  validationSchema: loginSchema,
+  onSubmit: fetchLogin,
+});
 
   return (
     <div className="login">
@@ -45,7 +65,7 @@ const formik = useFormik({
         </h1>
       </div>
 
-      {formView === 'enter' ?(<div className="form-container">
+      {formView !== 'enter' ?(<div className="form-container">
         <div className="login-form">
           <h2>Bienvenido</h2>
           <p>

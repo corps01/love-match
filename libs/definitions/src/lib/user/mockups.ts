@@ -1,102 +1,57 @@
-export type Horoscope =
-  | 'Aries'
-  | 'Taurus'
-  | 'Gemini'
-  | 'Cancer'
-  | 'Leo'
-  | 'Virgo'
-  | 'Libra'
-  | 'Scorpio'
-  | 'Sagittarius'
-  | 'Capricorn'
-  | 'Aquarius'
-  | 'Pisces';
-
-export type Gender = 'Female' | 'Male' | 'Other';
-
-export type Lookingfor =
-  | 'Friendship'
-  | 'Nothing'
-  | 'Long relationship'
-  | 'Casual';
-
-export interface User {
-  _id: string;
-  name: string;
-  last_name?: string;
-  password: string;
-  email: string;
-  city?: string;
-  country?: string;
-  phone: string;
-  image_profile: string;
-  gallery: string[];
-  age: number;
-  gender: Gender;
-  preference: string;
-  about: About;
-  lookingfor: Lookingfor;
-  verified: boolean;
-}
-
-export interface PersonPreview {
-  _id: string;
-  name: string;
-  last_name?: string;
-  city?: string;
-  country?: string;
-  phone: string;
-  image_profile: string;
-  gallery: string[];
-  age: number;
-  gender: Gender;
-  preference: string;
-  about: About;
-}
-
-export interface About {
-  horoscope?: Horoscope;
-  personal_questions?: PersonalQuestion[];
-  description: string;
-}
-
-export interface PersonalQuestion {
-  question: string;
-  answer: string;
-}
-
-export class CreateUserDTO {
-  name: string;
-  last_name: string;
-  password: string;
-  email: string;
-  city: string;
-  country: string;
-  phone: string;
-  age: number;
-  gender: Gender;
-  preference: string;
-  about: About;
-  lookingfor: Lookingfor;
-  verified = false;
-}
-
-export class LoginDTO {
-  email: string;
-  password: string;
-}
-
-export class AuthDAO{
-  jwt: string
-}
+import { Types } from 'mongoose';
+import { Horoscope } from '../about';
+import { Gender, Lookingfor, User, UserPreview } from './types';
 
 export const mockGeneralUserList: User[] = [
   {
-    _id: '_id2',
+    _id: new Types.ObjectId(),
     name: 'Probemio',
     last_name: 'testino',
     password:
-      '804f50ddbaab7f28c933a95c162d019acbf96afde56dba10e4c7dfcfe453dec4bacf5e78b1ddbdc1695a793bcb5d7d409425db4cc3370e71c4965e4ef992e8c4',
+      '0f13c89c435cbe566867e9df9f42b25120b322cc39a203b028017a0db938fed19b08243cc17b0f1d9d4b549d1bbe592915f7500013e8f41ff1ba3f1d7724500e',
+    email: 'probemioT89@test.com',
+    country: 'México',
+    city: 'CDMX',
+    phone: '+525512907846',
+    image_profile:
+      'https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png',
+    gallery: [
+      'https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png',
+      'https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png',
+      'https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png',
+      'https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png',
+      'https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png',
+      'https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png',
+    ],
+    age: 40,
+    gender: Gender.OTHER,
+    preference: 'Lo que no sea humano',
+    about: {
+      _id: new Types.ObjectId(),
+      horoscope: Horoscope.LIBRA,
+      personal_questions: [
+        {
+          _id: new Types.ObjectId(),
+          question: 'What is your favorite food?',
+          answer: 'Hot-Dog',
+        },
+        {
+          _id: new Types.ObjectId(),
+          question: 'What is your favorite movie?',
+          answer: 'Joker',
+        },
+      ],
+      description: "I'm looking a new experience",
+    },
+    lookingfor: Lookingfor.LONG_RELATIONSHIP,
+    verified: true,
+  },
+  {
+    _id: new Types.ObjectId(),
+    name: 'Probemio',
+    last_name: 'testino',
+    password:
+      '0f13c89c435cbe566867e9df9f42b25120b322cc39a203b028017a0db938fed19b08243cc17b0f1d9d4b549d1bbe592915f7500013e8f41ff1ba3f1d7724500e',
     email: 'prueba2@test.com',
     country: 'México',
     city: 'CDMX',
@@ -112,33 +67,35 @@ export const mockGeneralUserList: User[] = [
       'https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png',
     ],
     age: 40,
-    gender: 'Other',
+    gender: Gender.OTHER,
     preference: 'Lo que no sea humano',
     about: {
-      horoscope: 'Libra',
+      _id: new Types.ObjectId(),
+      horoscope: Horoscope.LIBRA,
       personal_questions: [
         {
+          _id: new Types.ObjectId(),
           question: 'What is your favorite food?',
           answer: 'Hot-Dog',
         },
         {
+          _id: new Types.ObjectId(),
           question: 'What is your favorite movie?',
           answer: 'Joker',
         },
       ],
       description: "I'm looking a new experience",
     },
-    lookingfor: 'Long relationship',
+    lookingfor: Lookingfor.LONG_RELATIONSHIP,
     verified: true,
   },
 ];
 
 export const mockGeneralUser: User = {
-  _id: '_id1',
+  _id: new Types.ObjectId(),
   name: 'Probemio',
   last_name: 'testino',
-  password:
-    '804f50ddbaab7f28c933a95c162d019acbf96afde56dba10e4c7dfcfe453dec4bacf5e78b1ddbdc1695a793bcb5d7d409425db4cc3370e71c4965e4ef992e8c4',
+  password: 'Password123$',
   email: 'probemioT89@test.com',
   country: 'México',
   city: 'CDMX',
@@ -154,29 +111,32 @@ export const mockGeneralUser: User = {
     'https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png',
   ],
   age: 40,
-  gender: 'Other',
+  gender: Gender.OTHER,
   preference: 'Lo que no sea humano',
   about: {
-    horoscope: 'Libra',
+    _id: new Types.ObjectId(),
+    horoscope: Horoscope.LIBRA,
     personal_questions: [
       {
+        _id: new Types.ObjectId(),
         question: 'What is your favorite food?',
         answer: 'Hot-Dog',
       },
       {
+        _id: new Types.ObjectId(),
         question: 'What is your favorite movie?',
         answer: 'Joker',
       },
     ],
     description: "I'm looking a new experience",
   },
-  lookingfor: 'Long relationship',
+  lookingfor: Lookingfor.LONG_RELATIONSHIP,
   verified: true,
 };
 
-export const mockopPersonsPreview: PersonPreview[] = [
+export const mockopPersonsPreview: UserPreview[] = [
   {
-    _id: '_id1',
+    _id: new Types.ObjectId(),
     name: 'Probemio',
     last_name: 'testino',
     country: 'México',
@@ -193,16 +153,19 @@ export const mockopPersonsPreview: PersonPreview[] = [
       'https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png',
     ],
     age: 40,
-    gender: 'Other',
+    gender: Gender.OTHER,
     preference: 'Lo que no sea humano',
     about: {
-      horoscope: 'Libra',
+      _id: new Types.ObjectId(),
+      horoscope: Horoscope.LIBRA,
       personal_questions: [
         {
+          _id: new Types.ObjectId(),
           question: 'What is your favorite food?',
           answer: 'Hot-Dog',
         },
         {
+          _id: new Types.ObjectId(),
           question: 'What is your favorite movie?',
           answer: 'Joker',
         },
@@ -211,7 +174,7 @@ export const mockopPersonsPreview: PersonPreview[] = [
     },
   },
   {
-    _id: '_id1',
+    _id: new Types.ObjectId(),
     name: 'Probemio',
     last_name: 'testino',
     country: 'México',
@@ -228,16 +191,19 @@ export const mockopPersonsPreview: PersonPreview[] = [
       'https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png',
     ],
     age: 40,
-    gender: 'Other',
+    gender: Gender.OTHER,
     preference: 'Lo que no sea humano',
     about: {
-      horoscope: 'Libra',
+      _id: new Types.ObjectId(),
+      horoscope: Horoscope.LIBRA,
       personal_questions: [
         {
+          _id: new Types.ObjectId(),
           question: 'What is your favorite food?',
           answer: 'Hot-Dog',
         },
         {
+          _id: new Types.ObjectId(),
           question: 'What is your favorite movie?',
           answer: 'Joker',
         },
@@ -246,7 +212,7 @@ export const mockopPersonsPreview: PersonPreview[] = [
     },
   },
   {
-    _id: '_id1',
+    _id: new Types.ObjectId(),
     name: 'Probemio',
     last_name: 'testino',
     country: 'México',
@@ -263,16 +229,19 @@ export const mockopPersonsPreview: PersonPreview[] = [
       'https://pickaface.net/gallery/avatar/unr_test_180821_0925_9k0pgs.png',
     ],
     age: 40,
-    gender: 'Other',
+    gender: Gender.OTHER,
     preference: 'Lo que no sea humano',
     about: {
-      horoscope: 'Libra',
+      _id: new Types.ObjectId(),
+      horoscope: Horoscope.LIBRA,
       personal_questions: [
         {
+          _id: new Types.ObjectId(),
           question: 'What is your favorite food?',
           answer: 'Hot-Dog',
         },
         {
+          _id: new Types.ObjectId(),
           question: 'What is your favorite movie?',
           answer: 'Joker',
         },

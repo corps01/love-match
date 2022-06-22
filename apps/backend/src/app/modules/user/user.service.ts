@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { User, mockGeneralUser, CreateUserDTO } from '@love-match/definitions';
+import { CreateUserDTO, mockGeneralUser, User } from '@love-match/definitions';
 
 @Injectable()
 export class UserService {
