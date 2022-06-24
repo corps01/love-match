@@ -16,6 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@love-match/components": ["libs/components/src/index.ts"],
       "@love-match/definitions": ["libs/definitions/src/index.ts"]
     }
   },

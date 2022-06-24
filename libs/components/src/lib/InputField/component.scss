@@ -3,16 +3,15 @@
   flex: 1;
   flex-direction: column;
   width: 100%;
-  font-family: "Poppins", sans-serif;
 }
 
 .input-field {
-  height: 50px;
+  border: solid #e7e5e5;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px 0;
   width: 100%;
   box-sizing: border-box;
-  border-radius: 8px;
-  padding: 8px 6px;
-  border: 2px solid rgb(244, 154, 238);
   transition-property: border, color;
   transition-duration: 0.5s;
   transition-timing-function: ease-in;
