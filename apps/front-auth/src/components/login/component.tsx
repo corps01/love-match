@@ -4,7 +4,6 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { LoginService } from '../../services/login';
 import { saveToken } from '../../services/localstorage';
-import { sha512 } from 'js-sha512';
 import { Button, InputField } from '@love-match/components';
 
 export interface loginForm {
@@ -25,16 +24,6 @@ const Login = () => {
   const toggledRegister = () => {
     setFormView(formView === 'enter' ? 'register' : 'enter');
   };
-
-  // const formik = useFormik({
-  //   initialValues:{
-  //     email: '',
-  //     password:'',
-  //   },
-  //   onSubmit: (values) =>{
-  //     console.log(values)
-  //   }
-  // })
 
   const fetchLogin = async (values: loginForm) => {
     const auth = await LoginService({
@@ -77,6 +66,7 @@ const Login = () => {
                 type="email"
                 placeholder="email"
                 name="email"
+                label='Email'
                 onChange={formik.handleChange('email')}
                 value={formik.values.email}
                 errorText={formik.errors.email}
@@ -86,6 +76,7 @@ const Login = () => {
                 type="password"
                 placeholder="contraseña"
                 name="password"
+                label='Contraseña'
                 onChange={formik.handleChange('password')}
                 value={formik.values.password}
                 errorText={formik.errors.password}
@@ -117,25 +108,21 @@ const Login = () => {
             </p>
 
             <form>
-              <input type="email" placeholder="email" name="email"></input>
-              <input
-                type="confirma email"
-                placeholder="confirma tu email"
-              ></input>
-              <input
+              <InputField type="email" placeholder="email" name="email" label='Email' errorText={formik.errors.email}
+                error={formik.errors.email !== undefined}/>
+              <InputField
+              label='Contraseña'
                 type="password"
                 placeholder="contraseña"
                 name="password"
-              ></input>
-              <input
+              />
+              <InputField
+              label='Confirma tu contraseña'
                 type="password"
                 placeholder="confirma tu contraseña"
-              ></input>
-              <div className="login-form-footer">
-                <div className="form-checkbox">
-                  <input type="checkbox"></input> <p>Recuerdame</p>
-                </div>
-                <button type="button" className='text-button' onClick={toggledRegister}>
+              />
+              <div className="login-form-footer-member">
+                <button className='text-button' type="button" onClick={toggledRegister}>
                   Ya soy un miembro
                 </button>
               </div>
